@@ -1,28 +1,3 @@
-/*
-Question: What are the top skills based on salary 
-*/
-
-SELECT 
-  s.skills,
-  ROUND(AVG(jpf.salary_year_avg), 2) AS average_salary
-FROM 
-  job_postings_fact AS jpf
-INNER JOIN skills_job_dim AS sjk
-  ON jpf.job_id = sjk.job_id
-INNER JOIN skills_dim as s
-  ON sjk.skill_id = s.skill_id
-WHERE
-  jpf.job_title_short = 'Data Analyst'
-  AND jpf.salary_year_avg IS NOT NULL
-  AND jpf.job_location LIKE '%South Africa'
-GROUP BY 
-  s.skills
-ORDER BY
-  average_salary DESC
-LIMIT 30
-
-/*
-Results:
 [
   {
     "skills": "spark",
@@ -145,4 +120,3 @@ Results:
     "average_salary": "75067.50"
   }
 ]
-*/
