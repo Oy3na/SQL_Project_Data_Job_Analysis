@@ -5,7 +5,7 @@ Question: What are the top-paying data analyst roles?
 */
 
 WITH top_paying_jobs AS (
-
+  -- TOP 10 Data Analyst Roles in South Africa
     (
         SELECT
             j.job_id,
@@ -26,7 +26,7 @@ WITH top_paying_jobs AS (
     )
 
     UNION ALL
-
+  -- TOP 10 Data Analyst Roles Remote
     (
         SELECT
             j.job_id,
